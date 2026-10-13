@@ -42,3 +42,6 @@ The cleaned dataset is saved as `Cleaned_Data_Analytics.xlsx`.
 
 # Learning Outcome
 This project provided hands-on practice in inspecting, cleaning, validating, and exporting data using Python and Pandas.
+- Exact duplicate rows: 0
+- Extra spaces remaining after cleaning: 0
+- Missing `CouponCode` values were preserved intentionally, as they may indicate that no coupon was used.
