@@ -38,10 +38,9 @@ print(df["OrderStatus"].value_counts(dropna=False))
 text_columns = df.select_dtypes(include=["str"]).columns
 
 for column in text_columns:
-    has_spaces = df[column].ne(df[column].str.strip())
+    non_missing = df[column].dropna()
+    has_spaces = non_missing.ne(non_missing.str.strip())
     print(f"{column}: {has_spaces.sum()} values with extra spaces")
-    print("Missing coupon codes:", df["CouponCode"].isna().sum())
-print("Non-missing coupon codes:", df["CouponCode"].notna().sum())
 cleaned_df = df.copy()
 
 print("Original rows:", len(df))
@@ -79,8 +78,6 @@ for column in text_columns:
 output_file = "C:/Users/SADHANA/Downloads/data-analytics-project-1/Cleaned_Data_Analytics.xlsx"
 
 cleaned_df.to_excel(output_file, index=False)
-
-print("Cleaned dataset saved to:", output_file)
 
 print("Cleaned dataset saved to:", output_file)
 
